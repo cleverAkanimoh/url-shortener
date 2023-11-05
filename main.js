@@ -20,6 +20,32 @@ function geturl(){
         window.location.hash = getrandom();
     }
   }
+
+function send_request(url) {
+    this.url = url;
+    $.ajax({
+        ‘url’: endpoint + “/” + window.location.hash.substr(1),
+        ‘type’: ‘POST’,
+        ‘data’: JSON.stringify(this.url),
+        ‘dataType’: ‘json’,
+        ‘contentType’: ‘application/json; charset=utf-8’
+    })
+        }
+
+
+var hashh = window.location.hash.substr(1)
+if (window.location.hash != "") {
+    $.getJSON(endpoint + "/" + hashh, function (data) {
+        data = data["result"];
+if (data != null) {
+            window.location.href = data;
+        }
+});
+    
 const shortUrl = () => {
-  console.log("clickerrr");
+  var longurl = geturl();
+    genhash();
+    send_request(longurl);
+simplecopy(window.location.href);
+
 };
