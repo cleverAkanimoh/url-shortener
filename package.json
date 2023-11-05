@@ -1,0 +1,6 @@
+{
+  "name": "url-shortener",
+  "devDependencies": {
+    "tailwindcss": "^3.3.5"
+  }
+}
