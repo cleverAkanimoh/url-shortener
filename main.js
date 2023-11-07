@@ -6,17 +6,17 @@ function getrandom(){
 }
 
 function geturl(){
-     var url = document.getElementById(“urlinput”).value;
-     var protocol_ok = url.startsWith(“http://”) || url.startsWith(“https://”) || url.startsWith(“ftp://”);
+     var url = document.getElementById("urlinput").value;
+     var protocol_ok = url.startsWith("http://") || url.startsWith("https://") || url.startsWith("ftp://");
      if(!protocol_ok){
-         newurl = “http://”+url;
+         newurl = "http://" +url;
          return newurl;
      }else{
          return url;
      }
 
   function genhash(){
-    if (window.location.hash == “”){
+    if (window.location.hash == ""){
         window.location.hash = getrandom();
     }
   }
@@ -24,22 +24,23 @@ function geturl(){
 function send_request(url) {
     this.url = url;
     $.ajax({
-        ‘url’: endpoint + “/” + window.location.hash.substr(1),
-        ‘type’: ‘POST’,
-        ‘data’: JSON.stringify(this.url),
-        ‘dataType’: ‘json’,
-        ‘contentType’: ‘application/json; charset=utf-8’
+        "url": endpoint + "/" + window.location.hash.substr(1),
+        "type": "POST",
+        "data": JSON.stringify(this.url),
+        "dataType": "json",
+        "contentType": "application/json; charset=utf-8"
     })
         }
 
 
-var hashh = window.location.hash.substr(1)
+var hashh = window.location.hash.substring(1)
+
 if (window.location.hash != "") {
     $.getJSON(endpoint + "/" + hashh, function (data) {
         data = data["result"];
-if (data != null) {
+    if (data != null) {
             window.location.href = data;
-        }
+    }
 });
     
 const shortUrl = () => {
@@ -48,4 +49,4 @@ const shortUrl = () => {
     send_request(longurl);
 simplecopy(window.location.href);
 
-};
+}
