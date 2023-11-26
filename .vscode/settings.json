@@ -1,3 +1,5 @@
 {
-    "liveServer.settings.port": 5501
+    "liveServer.settings.port": 5501,
+    "prisma-smart-formatter.typescript.defaultFormatter": "esbenp.prettier-vscode",
+    "prisma-smart-formatter.typescriptreact.defaultFormatter": "vscode.typescript-language-features"
 }

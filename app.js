@@ -50,3 +50,13 @@
 // simplecopy(window.location.href);
 
 // }
+
+// get DOM elements
+
+const alert = document.getElementById('alert');
+const longUrlText = document.getElementById('longUrlText').value;
+const shortUrlText = document.getElementById('shortUrlText');
+
+function shortUrl() {
+    console.log('shortUrlText');
+}
