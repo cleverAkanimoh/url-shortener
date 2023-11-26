@@ -13,23 +13,24 @@
 
 <body class="flex flex-col gap-5 items-center min-h-screen w-full">
 
-    <header class="h-20 mt-4 flex flex-col gap-1 items-center justify-center p-2">
+    <header class="h-20 mt-4 flex flex-col gap-1 items-center justify-center p-2 text-orange-900">
         <h1 class="text-2xl font-extrabold">URL Shortener</h1>
         <p class="">Our tool for shortening long Urls</p>
     </header>
 
     <div
-        class="flex flex-col items-center justify-center gap-5 p-2 w-[97%] max-w-[600px] h-80 bg-teal-500 text-white rounded-md transition-all duration-200">
-        
-        <div class="flex gap-2">
+        class="flex flex-col items-center justify-center gap-5 p-2 w-[97%] max-w-[600px] h-80 bg-emerald-500 text-white rounded-md transition-all duration-200">
+
+        <div class="flex gap-1">
             <input type="url" id="urlinput" placeholder="Long Url here"
-                class="border border-teal-200 rounded-md hover:border-teal-400 focus:border-teal-600 focus:outline-none p-2 text-base placeholder:text-gray-500">
-                
-            <button onclick="shortUrl()" class="font-serif">Short The URL</button>
+                class="border border-teal-200 rounded-md bg-teal-50 hover:border-teal-400 focus:border-teal-600 focus:shadow-md focus:outline-none p-2 text-base text-orange-900 placeholder:text-gray-500">
+
+            <button onclick="shortUrl()" class="font-serif bg-teal-950 text-teal-50 p-2 rounded-md ">Short The
+                URL</button>
         </div>
 
-        <p class="">shortened Url: </p>
-        <p class="">copied!</p>
+        <p class="" id="shortUrlText">shortened Url: </p>
+        <p class="" id="alert">copied!</p>
     </div>
 
 
