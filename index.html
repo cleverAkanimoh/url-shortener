@@ -19,18 +19,17 @@
     </header>
 
     <div
-        class="flex flex-col items-center justify-center gap-5 p-2 w-[97%] max-w-[600px] h-80 bg-emerald-500 text-white rounded-md transition-all duration-200">
+        class="flex flex-col items-center justify-center gap-8 p-2 w-[97%] max-w-[600px] h-80 bg-orange-950 text-white rounded-md transition-all duration-200">
 
         <div class="flex gap-1">
             <input type="url" id="urlinput" placeholder="Long Url here"
-                class="border border-teal-200 rounded-md bg-teal-50 hover:border-teal-400 focus:border-teal-600 focus:shadow-md focus:outline-none p-2 text-base text-orange-900 placeholder:text-gray-500">
+                class="border rounded-md bg-transparent focus:border-teal-950 focus:outline-none p-2 text-base text-gray-400 placeholder:text-gray-400">
 
-            <button onclick="shortUrl()" class="font-serif bg-teal-950 text-teal-50 p-2 rounded-md ">Short The
-                URL</button>
+            <button onclick="shortUrl()" class="font-serif bg-teal-950 text-teal-50 p-2 rounded-md hover:bg-opacity-40 transition-all duration-300">Short The URL</button>
         </div>
 
         <p class="" id="shortUrlText">shortened Url: </p>
-        <p class="" id="alert">copied!</p>
+        <p class="text-gray-200" id="alert">copied to clipboard</p>
     </div>
 
 
