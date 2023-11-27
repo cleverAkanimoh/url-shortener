@@ -60,9 +60,9 @@ const longUrlText = document.getElementById("longUrlText");
 const shortUrlText = document.getElementById("shortUrlText");
 
 async function shortUrl() {
-  const longUrl = longUrlText.value;
-  spinner.classList.remove('hidden')
-  try {
+    spinner.classList.remove('hidden')
+    try {
+      const longUrl = longUrlText.value;
     const res = await fetch(apiUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json", "Authorization":"Bearer evil-shortener" },
@@ -75,11 +75,13 @@ async function shortUrl() {
 
     const shortUrl = data.link;
 
-    shortUrlText.innerText = `shortened Url: ${shortUrl}`;
+    shortUrlText.innerHTML = `shortened url: <a href=${shortUrl}>${shortUrl}</a>`;
     
-    simplecopy(shortUrl)
+    simplecopy(shortUrl);
+    
+    alertDOM.innerText = "long url has been shortened and copied to clipboard";
 
-    setTimeout(() => alertDOM.innerText = "longUrl shortened and copied to clipboard", 5000)
+    setTimeout(() => alertDOM.innerText = "", 5000)
     console.log(data);
     
   } catch (error) {
