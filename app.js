@@ -78,7 +78,7 @@ async function shortUrl() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer evil-shortener",
+        "Authorization": "Bearer 6b973afd6e512c3ca479be87f313de91d0777ba6",
       },
       body: JSON.stringify({
         long_url: longUrl,
