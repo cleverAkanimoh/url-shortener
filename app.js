@@ -61,18 +61,17 @@ const longUrlText = document.getElementById("longUrlText");
 const shortUrlText = document.getElementById("shortUrlText");
 
 async function shortUrl() {
-  spinner.classList.remove("hidden");
-
   const longUrl = longUrlEl.value;
 
-  if (longUrl.length === 0 || !longUrl.includes('https://') ) {
+  if (longUrl.length <= 0 ) {
     shortUrlText.innerText = "Enter a valid long url";
     longUrlEl.focus();
     longUrlEl.select();
     return;
   }
+  
+  spinner.classList.remove("hidden");
 
-  console.log(longUrl.length);
   try {
     const res = await fetch(apiUrl, {
       method: "POST",
@@ -81,7 +80,7 @@ async function shortUrl() {
         "Authorization": "Bearer 6b973afd6e512c3ca479be87f313de91d0777ba6",
       },
       body: JSON.stringify({
-        long_url: longUrl,
+        long_url: longUrl
       }),
     });
 
