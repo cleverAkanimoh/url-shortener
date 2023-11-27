@@ -22,7 +22,7 @@
         class="flex flex-col items-center justify-center gap-8 p-1 sm:p-2 w-[97%] max-w-[600px] h-80 bg-orange-950 text-white rounded-md transition-all duration-200">
 
         <div class="flex gap-1 p-1 sm:p-2 lg:p-3 xl:p-4 border rounded-md bg-white">
-            <input type="url" id="longUrlText" placeholder="Long Url here"
+            <input type="url" id="longUrl" placeholder="Long Url here"
                 class="border rounded-md bg-transparent focus:border-teal-950 focus:outline-none p-2 text-base text-gray-400 placeholder:text-gray-400 sm:w-[400px]">
 
             <button onclick="shortUrl()"
@@ -31,6 +31,7 @@
         </div>
 
         <p class="" id="shortUrlText"></p>
+        <p class="" id="longUrlText"></p>
         <div class="w-10 h-10 border-t-4 animate-spin rounded-full hidden" id="spinner"></div>
         <p class="text-gray-200" id="alert"></p>
     </div>

@@ -56,16 +56,30 @@ const apiUrl = "https://api-ssl.bitly.com/v4/shorten";
 
 const alertDOM = document.getElementById("alert");
 const spinner = document.getElementById("spinner");
+const longUrlEl = document.getElementById("longUrl");
 const longUrlText = document.getElementById("longUrlText");
 const shortUrlText = document.getElementById("shortUrlText");
 
 async function shortUrl() {
-    spinner.classList.remove('hidden')
-    try {
-      const longUrl = longUrlText.value;
+  spinner.classList.remove("hidden");
+
+  const longUrl = longUrlEl.value;
+
+  if (longUrl.length === 0 || !longUrl.includes('https://') ) {
+    shortUrlText.innerText = "Enter a valid long url";
+    longUrlEl.focus();
+    longUrlEl.select();
+    return;
+  }
+
+  console.log(longUrl.length);
+  try {
     const res = await fetch(apiUrl, {
       method: "POST",
-      headers: { "Content-Type": "application/json", "Authorization":"Bearer evil-shortener" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer evil-shortener",
+      },
       body: JSON.stringify({
         long_url: longUrl,
       }),
@@ -76,19 +90,17 @@ async function shortUrl() {
     const shortUrl = data.link;
 
     shortUrlText.innerHTML = `shortened url: <a href=${shortUrl}>${shortUrl}</a>`;
-    
+
     simplecopy(shortUrl);
-    
+
     alertDOM.innerText = "long url has been shortened and copied to clipboard";
 
-    setTimeout(() => alertDOM.innerText = "", 5000)
+    setTimeout(() => (alertDOM.innerText = ""), 5000);
     console.log(data);
-    
   } catch (error) {
-    alertDOM.innerText = "something went wrong";
+    shortUrlText.innerText = "something went wrong";
     // shortUrlText.innerHTML =`<button onclick="window.location.reload()" class="bg-teal-950 text-teal-50 p-2 rounded-md hover:bg-teal-700 transition-all duration-300">retry</button>`
   }
-  
-  spinner.classList.add('hidden')
-}
 
+  spinner.classList.add("hidden");
+}
